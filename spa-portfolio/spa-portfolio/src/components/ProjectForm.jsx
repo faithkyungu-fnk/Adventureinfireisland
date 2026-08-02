@@ -1,17 +1,69 @@
-function ProjectForm() {
+import { useState } from "react";
+
+//adding a new project
+function ProjectForm({ addProject }) {
+
+  //store the title input
+  const [title, setTitle] = useState("");
+
+  //store description input
+  const [description, setDescription] = useState("");
+
+  // handle form submission
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    //prevent empty submission
+    if (!title || !description) {
+      return;
+    }
+
+    //create a new project object
+    const newProject = {
+      id: Date.now(),
+      title: title,
+      description: description,
+      category: "New Project"
+    };
+
+    //send project to app.js
+    addProject(newProject);
+
+    //clear form
+    setTitle("");
+    setDescription("");
+  }
+
   return (
-    <section className="project-form">
+    <section className="form-section">
+
       <h2>Add New Project</h2>
 
-      <input type="text" placeholder="Project Title" />
+      <form onSubmit={handleSubmit}>
 
-      <textarea placeholder="Project Description"></textarea>
+        {/* project title */}
+        <input
+          type="text"
+          placeholder="Project Title"
+          value={title}
+          onChange={(event) => setTitle(event.target.value)}
+        />
 
-      <input type="text" placeholder="Image URL" />
+        {/* Project description */}
+        <textarea
+          placeholder="Project Description"
+          rows="5"
+          value={description}
+          onChange={(event) => setDescription(event.target.value)}
+        ></textarea>
 
-      <input type="text" placeholder="Technology Used" />
+        {/* Submit button */}
+        <button type="submit">
+          Add Project
+        </button>
 
-      <button>Add Project</button>
+      </form>
+
     </section>
   );
 }

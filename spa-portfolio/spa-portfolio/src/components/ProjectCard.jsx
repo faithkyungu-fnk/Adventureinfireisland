@@ -1,14 +1,18 @@
-function ProjectCard({ project }) {
-  return (
+function ProjectCard({project}){
+  return(
     <div className="project-card">
-      <img src={project.image} alt={project.title} />
-
-      <div className="card-content">
-        <h3>{project.title}</h3>
-
+      {/* project category banner */}
+      <div className="project-banner">
+        <h3>{project.category}</h3>
+      </div>
+      {/*project information */}
+      <div className="project-content">
+        <h2>{project.title}</h2>
         <p>{project.description}</p>
 
-        <span>{project.technology}</span>
+        <button className="learn-btn">
+          Learn More
+        </button>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 function Header(){
     return(
         <header className="header">
-            <h1>Creative Portfolio</h1>
-            <p>Showcasing our latest web development projects.</p>
+            <h1>My Portfolio</h1>
+            <p>Showcasing my latest web development projects.</p>
         </header>
     );
 }
