@@ -37,7 +37,7 @@ function ProjectForm({ addProject }) {
   return (
     <section className="form-section">
 
-      <h2>Add New Project</h2>
+      
 
       <form onSubmit={handleSubmit}>
 

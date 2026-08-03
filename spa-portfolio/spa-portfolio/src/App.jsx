@@ -2,17 +2,16 @@
 import { useState } from "react";
 import initialProjects from "./data/project.js";
 
-//import styles
+// Import styles
 import "./App.css";
 
-//import the Header component
+// Import components
 import Header from "./components/Header";
 import ProjectList from "./components/ProjectList";
 import ProjectForm from "./components/ProjectForm";
 
-//main application
+// Main application
 function App() {
-
   // Store all projects
   const [projects, setProjects] = useState(initialProjects);
 
@@ -36,13 +35,17 @@ function App() {
 
   return (
     <div className="container">
-
       {/* Header */}
       <Header />
 
+      {/* Add New Project */}
+      <section className="form-section">
+        <h2>Add New Project</h2>
+        <ProjectForm addProject={addProject} />
+      </section>
+
       {/* Search Section */}
       <section className="search-section">
-
         <h2>Search Projects</h2>
 
         <input
@@ -55,7 +58,6 @@ function App() {
         {/* Auto Suggestions */}
         {search && (
           <div className="suggestions">
-
             {suggestions.length > 0 ? (
               suggestions.map((project) => (
                 <p
@@ -68,18 +70,15 @@ function App() {
             ) : (
               <p>No project found</p>
             )}
-
           </div>
         )}
-
       </section>
 
-      {/* Display all matching projects */}
-      <ProjectList projects={filteredProjects} />
-
-      {/* Add new project form */}
-      <ProjectForm addProject={addProject} />
-
+      {/* Display Projects */}
+      <section className="projects-section">
+        <h2>My Projects</h2>
+        <ProjectList projects={filteredProjects} />
+      </section>
     </div>
   );
 }

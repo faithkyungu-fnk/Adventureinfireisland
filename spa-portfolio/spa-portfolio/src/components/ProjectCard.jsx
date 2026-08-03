@@ -1,18 +1,15 @@
-function ProjectCard({project}){
-  return(
+function ProjectCard({ project }) {
+  return (
     <div className="project-card">
       {/* project category banner */}
       <div className="project-banner">
         <h3>{project.category}</h3>
       </div>
-      {/*project information */}
+
+      {/* project information */}
       <div className="project-content">
         <h2>{project.title}</h2>
         <p>{project.description}</p>
-
-        <button className="learn-btn">
-          Learn More
-        </button>
       </div>
     </div>
   );

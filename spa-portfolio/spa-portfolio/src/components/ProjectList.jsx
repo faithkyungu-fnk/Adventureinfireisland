@@ -3,7 +3,7 @@ import ProjectCard from "./ProjectCard";
 function ProjectList({ projects }) {
   return (
     <section className="projects-section">
-      <h2>My Projects</h2>
+      
       <div className="projects-grid">
 
         {/*looping through the projects */}
